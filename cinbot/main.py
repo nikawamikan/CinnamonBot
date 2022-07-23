@@ -1,11 +1,8 @@
 from discord.ext import commands
-from dotenv import load_dotenv
 import os
 
-bot = commands.Bot(debug_guilds=[879288794560471050])
-load_dotenv()
+bot = commands.Bot(debug_guilds=[int(os.getenv('GUILD_ID'))])
 TOKEN = os.getenv('TOKEN')
-print (TOKEN)
 
 path = "./cogs"
 
@@ -25,6 +22,6 @@ async def on_ready():
 bot.load_extension('cogs.others')
 bot.load_extension('cogs.itudoko')
 bot.load_extension('cogs.point')
-#bot.load_extension('cogs.superchat')
+bot.load_extension('cogs.superchat')
 
 bot.run(TOKEN)
