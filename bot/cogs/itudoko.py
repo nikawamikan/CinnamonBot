@@ -5,7 +5,6 @@ from discord import Option, OptionChoice, SlashCommandGroup
 from googletrans import Translator
 import random
 import copy
-import os
 
 
 class ItudokoCog(commands.Cog):

@@ -1,9 +1,7 @@
-from tracemalloc import stop
-from turtle import st
 import yaml
 import discord
 from discord.ext import commands
-from discord import Option, OptionChoice, SlashCommandGroup
+from discord import Option, SlashCommandGroup
 from googletrans import Translator
 import random
 import copy

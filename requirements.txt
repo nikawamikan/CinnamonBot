@@ -1,0 +1,5 @@
+joblib
+pyyaml
+numpy
+googletrans >= 4.0.0rc1
+py-cord >= 2.0.0b5
