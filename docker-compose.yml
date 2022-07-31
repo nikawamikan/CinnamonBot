@@ -3,7 +3,7 @@ services:
   bot:
     build: .
     volumes:
-      - ./bot:/usr/src/bot
+      - ./CinnamonBot:/usr/src/bot
     environment:
       - TOKEN=${TOKEN}
       - GUILD=${GUILD}
