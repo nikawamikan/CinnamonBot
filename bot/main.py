@@ -1,7 +1,12 @@
 from discord.ext import commands
 import os
+import dotenv
 
-bot = commands.Bot(debug_guilds=[879288794560471050])
+if os.getenv('TOKEN') == None:
+    dotenv.load_dotenv('../.env')
+
+
+bot = commands.Bot(debug_guilds=[int(os.getenv('GUILD'))])
 TOKEN = os.getenv('TOKEN')
 print(TOKEN)
 
@@ -22,7 +27,7 @@ async def on_ready():
 
 bot.load_extension('cogs.others')
 bot.load_extension('cogs.itudoko')
-bot.load_extension('cogs.point')
+# bot.load_extension('cogs.point')
 bot.load_extension('cogs.hogestory')
 bot.load_extension('cogs.superchat')
 
