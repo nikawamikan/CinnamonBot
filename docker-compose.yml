@@ -3,9 +3,14 @@ services:
   bot:
     build: .
     volumes:
+      - ./main:/usr/src/bot/main
       - ./CinnamonBot:/usr/src/bot
     environment:
       - TOKEN=${TOKEN}
       - GUILD=${GUILD}
-    command: python3 main.py
+    command: >
+            sh -c '
+              cp ./main/dmain.py ./
+              python3 dmain.py
+            '
     tty: true
