@@ -1,3 +1,4 @@
+from asyncio import sleep
 import discord
 from discord.ext import commands
 from discord.commands import SlashCommandGroup
@@ -25,6 +26,26 @@ class Button(discord.ui.View):
             button.style = discord.ButtonStyle.green
             button.disabled = True  # True でボタンがもう押せない状態になる
         button.label = str(number + 1)
+
+        # Make sure to update the message with our updated selves
+        await interaction.response.edit_message(view=self)
+
+    @discord.ui.button(
+        # ボタンの初期値を決める
+        label="10000",  # ボタンの値
+        style=discord.ButtonStyle.red  # ボタンの色
+    )
+    async def yes(
+        self,
+        button: discord.ui.Button,  # ボタンのオブジェクト（これをかきかえたりする
+        interaction: discord.Interaction  # ctxみたいなもん（ボタンが押されたときの反応を返す
+    ):
+        # ボタンのラベルは基本的に文字列型
+        number = int(button.label) if button.label else 0
+        if number >= 9000000:
+            button.style = discord.ButtonStyle.green
+            button.disabled = True  # True でボタンがもう押せない状態になる
+        button.label = str(number * 2)
 
         # Make sure to update the message with our updated selves
         await interaction.response.edit_message(view=self)
