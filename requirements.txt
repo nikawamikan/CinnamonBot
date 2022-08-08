@@ -3,3 +3,4 @@ pyyaml
 requests
 googletrans == 4.0.0rc1
 py-cord == 2.0.0b5
+discord_buttons_plugin
