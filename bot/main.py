@@ -1,9 +1,7 @@
 from discord.ext import commands
-from dotenv import load_dotenv
 import os
 
-bot = commands.Bot(debug_guilds=[879288794560471050])
-load_dotenv()
+bot = commands.Bot(debug_guilds=[os.getenv('GUILD')])
 TOKEN = os.getenv('TOKEN')
 print(TOKEN)
 
@@ -32,7 +30,7 @@ bot.load_extension('cogs.todo')
 bot.load_extension('cogs.shogi')
 bot.load_extension('cogs.nb')
 bot.load_extension('cogs.keiba')
-#bot.load_extension('cogs.multiplay')
+# bot.load_extension('cogs.multiplay')
 bot.load_extension('cogs.stat')
 
 bot.run(TOKEN)
