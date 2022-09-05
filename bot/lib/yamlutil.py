@@ -1,11 +1,10 @@
-from email.policy import default
 import yaml as y
 
 basepath = "./data/"
 
 
 class yaml:
-    def __init__(self, path="./tmp.yaml"):
+    def __init__(self, path="tmp.yaml"):
         self.path = basepath + path
 
     def load_yaml(self, default: any = dict()) -> any:
@@ -29,8 +28,3 @@ class yaml:
         with open(self.path, 'w', encoding="utf-8_sig") as f:
             y.dump(data, f, default_flow_style=False, allow_unicode=True)
             return data
-
-
-test = yaml("test.yaml")
-
-test.save_yaml({"test": "yaml"})

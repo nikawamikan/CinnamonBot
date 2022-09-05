@@ -3,10 +3,7 @@ from discord.ext import commands
 from discord import Option, SlashCommandGroup
 from lib.faceutil import get_face, UUID_NotFoundException
 from lib.chouen import getChouen
-from discord_buttons_plugin import *
 import random
-
-buttons = "hoge"
 
 
 class OthersCog(commands.Cog):
@@ -15,7 +12,6 @@ class OthersCog(commands.Cog):
         print('そのた初期化.')
         self.bot = bot
         global buttons
-        buttons = ButtonsClient(bot)
 
     # コマンドグループを定義っ！！！
     others = SlashCommandGroup('etc', 'test')
@@ -152,24 +148,25 @@ class OthersCog(commands.Cog):
         ctx: discord.ApplicationContext
     ):
         word = [
-                    "あ","い","う","え","お",
-                    "か","き","く","け","こ",
-                    "さ","し","す","せ","そ",
-                    "た","ち","つ","て","と",
-                    "な","に","ぬ","ね","の",
-                    "は","ひ","ふ","へ","ほ",
-                    "ま","み","む","め","も",
-                    "や","わ","ゆ","を","よ",
-                    "ん","ゃ","ゅ","ょ","ぇ",
-                    "ぱ","ぴ","ぷ","ぺ","ぽ",
-                    "ば","び","ぶ","べ","ぼ",
-                    "だ","ぢ","づ","で","ど",
-                    "が","ぎ","ぐ","げ","ご"
-                ]
+            "あ", "い", "う", "え", "お",
+            "か", "き", "く", "け", "こ",
+            "さ", "し", "す", "せ", "そ",
+            "た", "ち", "つ", "て", "と",
+            "な", "に", "ぬ", "ね", "の",
+            "は", "ひ", "ふ", "へ", "ほ",
+            "ま", "み", "む", "め", "も",
+            "や", "わ", "ゆ", "を", "よ",
+            "ん", "ゃ", "ゅ", "ょ", "ぇ",
+            "ぱ", "ぴ", "ぷ", "ぺ", "ぽ",
+            "ば", "び", "ぶ", "べ", "ぼ",
+            "だ", "ぢ", "づ", "で", "ど",
+            "が", "ぎ", "ぐ", "げ", "ご"
+        ]
         hoge = []
         for n in range(3):
             hoge.append(random.choice(word))
         await ctx.respond("".join(hoge))
+
 
 def setup(bot):
     bot.add_cog(OthersCog(bot))
